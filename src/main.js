@@ -104,8 +104,6 @@ function fc_2() {
             callbacksN +=1;
 	    }
     }
-
-    document.getElementById('acm').innerText = `acm: ${acml_values}`;
     document.getElementById('runing').style.color = 'gray';
 }
 

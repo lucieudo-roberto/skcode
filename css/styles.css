@@ -22,7 +22,7 @@ h1 {
 
 main {
     display: block;
-    width: 100%;
+    width: min(600px, 100%);
     padding: 1%;
     margin: auto auto;
 }
@@ -129,4 +129,12 @@ footer {
         }
             
             
-        
+@media( min-width: 900px ) {
+    h1 {
+        border: none;
+    }
+
+    footer {
+        display: none;
+    }
+}   
