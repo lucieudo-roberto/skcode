@@ -16,37 +16,35 @@ Se vc sabe um pouco de estrutura de dados e tem um pouco de conhecimento sobre a
 
 #### instruções 
 
-> **00001010** 
+**00001010** 
 > Esse opcode aloca a valor contido no acumulador no endereço presente na proxima linha .
-> 
-   **00001111**
+
+**00001111**
 > Opcode para carregar o valor contido no endereço passado da proxima linha, no acumulador.
-> 
-   **00000101**
-> Soma o valor contido no endereço 
-> 
-   **00001110**
+
+**00000101**
+> Soma o valor contido no endereço
+
+**00001110**
 >Faz um jump para um endereço 
->
-   **00001011**
+
+**00001011**
 > Faz um jump se o acumulador tiver valor igual a zero
-> 
-   **00001101**
+
+**00001101**
 >jump se o acumulador for negativo
->
-> **00001001**
+
+**00001001**
 > Esse opcode aloca o valor da proxima instrução ao acumulador,  vale notar, que, apesar do acumulador suporta 8bits, essa instrução adiciona apenas valores de 4bits no acumulador. 
->
-> **00001100**
-> Esse opcode faz a negação do valor que está no endereço apontando, 2 -> -1, 4 -> -3 
 
+**00001100**
+> Esse opcode faz a negação do valor que está no endereço apontando, 2 -> -1,   4 -> -3 
 
-###
 #### Considerações
 
 Há tambem outras limitações que devem ser levadas em conta. Você so pode codificar 28 linhas, já que a memoria de instruções é de apenas 224 bits . 
 
-Quero reforçar que esse projeto, em nenhum momento foi considerado algo consiso e que va trazer algum tipo de benefício intelectual para quem usar ou ler esse "artigo", dito isso, se "divirta" e explore o códico e veja da maneira mais simples possível de como uma cpu funciona . 
+Quero reforçar que esse projeto, em nenhúm momento foi considerado algo consiso e que vá trazer algum tipo de benefício intelectual para quem usar ou ler esse "artigo", dito isso, se "divirta" e explore o código e veja a maneira mais simples possível de como uma cpu funciona . 
 
 
-[Abrir o projeto](url)
+[Visitar](https://lucieudo-roberto.github.io/skcode/)
