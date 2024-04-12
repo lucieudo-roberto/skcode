@@ -9,6 +9,7 @@
 Esse pequeno projeto nasceu durante uma brincaderia com uma amiga, a qual falou que durante as férias iria se dedicar bastante nos estudos de programação, que teria como objetivo, voltar programando diretamente em binário por meio de fios, fechando curto direto na memória do computador.  Essa brincadeira me fez lembrar desse <a href="https://pt.m.wikipedia.org/wiki/Altair_8800">computador</a>, onde a programação desses equipamentos eram feitas atraves de chaves eletrônicas que representavam os bits; assim como ela disse na sua brincaderia. Confesso que como um programador com "sindrome de reinventar a roda", eu pensei: porque eu mesmo não faço um  "emulador" com essa abordagem, e a desafio à codar alguma coisa nele?. Então assim nasceu esse microprojeto. 
 </p>
 
+<br>
 
 ## Estrutura da "máquina" 
 
@@ -20,6 +21,7 @@ Se vc tem um pouco de conhecimento em estrutura de dados e conhecimento sobre ar
 O "hardware" do SkCode possue apenas um acumulador e suporte a instruções de 8 bits, sendo que os 4 bits a esquerda representam valores ou endereços, e os demais bits à direita, são para as instruções da máquina. Ela possue 2 memórias separadas<a href="https://www.google.com.br/search?q=arquitetura+de+harvard"> [ arquitetura harvard ] </a>,  data memory com 16 bytes, e Struction memory com 28 bytes. Note que o acumulador suporta 8 bits de informação, mesmo que você esteja limitado a acessar posições ou trabalhar com valores entre -16 e 16, você não terá essa limitação no acumulador ou quando precisar salvar esse valor na data memory. Ao total a máquina é composta por um conjunto de 8 instruções sem <a href='https://www.google.com/search?q=mnem%C3%B4nicos+assembly'>mnemônicos </a>; Você precisará escrever diretamente em bínario:
 </p>
 
+<br>
 
 ## Instruções 
 
@@ -41,6 +43,8 @@ Nota: Os traços (-) são meramente ilustrativos, na codificação final eles n�
 
 ```
 <center><img width="60%" src="res/img_3.png"/></center>
+
+<br>
 
 ## funcionamento
 <p align="justify">
@@ -64,10 +68,13 @@ A SkCode é baseada na <a href='https://www.google.com/search?q=m%C3%A1quina+nea
 
     ```
 
+<br>
 
 <p align="justify">
 Muito código para quase nada! Em qualquer linguagem de programação, você pode simplesmente escrever "6+3", muito mais rápido e produtivo. É por isso que "ninguém" programa em baixo nível usando binário diretamente. Em vez disso, utilizam linguagens de montagem como <a href='https://www.google.com/search?q=assembly'>assembly</a> que contam com um <a href='https://pt.stackoverflow.com/questions/178804/o-que-%C3%A9-assembler'>assembler</a> para fazer a conversão de texto para binário. Por exemplo, é possível escrever um assembler para SkCode que realize essas conversões.
 </p>
+
+<br>
 
 |opcode        |mnemônico |  opcode | mnemônico | 
 |:------------:|:---:|:------------:|:---:|
