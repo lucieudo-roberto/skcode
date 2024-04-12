@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <title>skCode</title>
+</head>
+
+<body>
+    <h1> -- Binary programe skCode -- </h1>
+    <main>
+        <div class="w1">
+            <div class="binary-rows">
+                <p>Instru.. memory</p>
+                <script>
+                    for (let x=0; x<28; x++) {
+                        document.write('<i class="binary-line">&nbsp;</i>');
+                    }
+                </script>
+            </div>
+            
+            <div class="mnemonicos">
+                <!-- h1>mnemônicos</h1 -->
+                <div class="mnemo-outp">
+                    <script>
+                        for (let x = 0; x < 19; x++) {
+                            document.write('<i class="mnemo-line">&nbsp;</i>');
+                        }
+                    </script>
+                </div>
+                <br>
+                <p>Data Memory </p>
+                <div class="memory">
+                    <script>
+                        for ( let x=0; x<16; x++ ) {
+                            document.write("<i class='bit-cell'>0</i>");
+                        }
+                    </script>
+                </div>
+                <div class="bnts">
+                    <button onclick="fc_2()" class="bnt">RUN</button>
+                    <button onclick="fc_3()" class="bnt">CLS</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="l-box" onclick="fc_1('wire-1')">
+                <img id="wire-1" src="res/img_1.png" class="l1-wire wire"/>
+            </div>
+            
+            <div class="r-box" onclick="fc_1('wire-2')">
+                <img id="wire-2" src="res/img_1.png" class="r1-wire wire"/>
+            </div>
+        </footer>
+    </main>
+    <audio id="snd" src="res/09671.mp3"></audio>
+    <script src="src/styles.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>
