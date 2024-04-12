@@ -45,12 +45,12 @@ function fc_1(wire_side) {
     switch(wire_side) {
         case "b0":
             wire0.src = '../res/img_2.png';
-            setTimeout(()=>{ wire0.src = '../res/img_1.png'},100);
+            setTimeout(()=>{ wire0.src = 'res/img_1.png'},100);
             sound.play()
         break;
         case "b1":
             wire1.src = '../res/img_2.png';
-            setTimeout(()=>{ wire1.src = '../res/img_1.png';},100);
+            setTimeout(()=>{ wire1.src = 'res/img_1.png';},100);
             sound.play()
         break;
     }
@@ -91,7 +91,7 @@ function fc_2() {
 	    }
     }
 
-    document.getElementById('acm').innerText = acml_values;
+    document.getElementById('acm').innerText = `acumulador: ${acml_values}`;
     document.getElementById('runing').style.color = 'gray';
 }
 
