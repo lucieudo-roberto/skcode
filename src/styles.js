@@ -9,5 +9,5 @@ const mnomios = {
     "1101": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>jmn <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
     "1001": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>set <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
     "1100": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>not <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
-    "erro": ( ) => { return `<span style='color: #5e5e5e; font-weight: 500';>opcode invalido !!</span>&nbsp;&nbsp;`;}
+    "erro": ( ) => { return `<span style='color: #5e5e5e; font-weight: 500';>invalid opcode!!</span>&nbsp;&nbsp;`;}
 }

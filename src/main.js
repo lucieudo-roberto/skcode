@@ -78,20 +78,25 @@ function fc_1(wire_side) {
 function fc_2() {
     document.getElementById('runing').style.color = 'green';
     acml_values = 0
-    if (buff_clines > 0 ) {
+    if ( buff_clines > 0 ) {
         for (let x=0; x < buff_clines; x++) {
             let lbits = stru_memory[x].substr(0,4);  // values and adress
             let rbits = stru_memory[x].substr(4,4);  // instructions
-            console.log('a')
+            
             try {
                 let state = instructions[rbits](lbits);
-                x = ( state == undefined ) ? x : state;
-            
+                if ( state != undefined ) {
+                    if ( state < 0 || state > buff_clines ) {
+                        alert(`line: ${buff_clines+1}, invalid jump adress, min-max: < 0-${buff_clines} >`);
+                        break;
+                    }else
+                        x = ( state == undefined ) ? x : state;
+                }            
             }catch(e) {}
 	    }
     }
 
-    document.getElementById('acm').innerText = `acumulador: ${acml_values}`;
+    document.getElementById('acm').innerText = `acm: ${acml_values}`;
     document.getElementById('runing').style.color = 'gray';
 }
 
