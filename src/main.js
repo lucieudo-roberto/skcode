@@ -1,138 +1,98 @@
 
-var bits_buff = Array();
-var prog_memory = [];
-var prog_point = 0;
-var acm_ = 0;
-var data_memory = Array(16);
-var bits_line = 0;
-var mnom_line = 0;
 
 
-function fc_1(id) {
-    let img = document.getElementById(id);
-    let snd = document.getElementById('snd');
-    
-    
-    let bits_out = document.querySelectorAll(".binary-line");
-    let mnom_out = document.querySelectorAll(".mnemo-line");
-    
-    img.src = "res/img_2.png";
-    snd.play();
+let wire0 = document.getElementById('wire-0')
+let wire1 = document.getElementById('wire-1')
+let sound = document.getElementById('soud-1')
 
-    setTimeout(()=>{
-        img.src = "res/img_1.png";
-    },100);
+let data_grafic = document.querySelectorAll(".dt-cell");
+let stru_grafic = document.querySelectorAll(".nm-line");
+let bina_grafic = document.querySelectorAll(".bn-line");
+
+var acml_values = 0;  // acumulador
+let data_memory = Array(16); 
+let stru_memory = Array(28);
+let buff_binary = [];
+let buff_clines = 0; // buff code lines
+
+const instructions = {
+    "1111": (addr) =>{acml_values  = data_memory[addr]},
+    "0101": (addr) =>{acml_values += data_memory[addr]},
+    "1001": (addr) =>{acml_values = addr},
     
-    if (bits_buff.length == 8) {
-    	
-    	if ( prog_point <= 28 ) {
-            prog_memory[prog_point] = bits_buff;
-            prog_point += 1;
-        } else {
-        	prog_point = 0;
-            prog_memory[prog_point] = bits_buff;
-        }
-        
-        let t = null;
+    "1010": (addr) => {
+        data_grafic[addr].innerText = acml_values;
+        data_memory[addr] = acml_values;
+    },
+
+    "1100": (addr) =>{
+        data_memory[addr] = ~ data_memory[addr];
+		data_grafic[addr].innerText = data_memory[addr];
+    },
+
+    "1110": (addr) => {return addr},
+    "1011": (addr) => {return ( acml_values == 0 ) ? addr : null},
+    "1101": (addr) => {return ( acml_values <  0 ) ? addr : null}
+}
+
+function fc_1(wire_side) {
+    if ( buff_binary.length < 8 ) {
+        let bit = wire_side == 'b1' ? 1 : 0;
+         buff_binary.push(bit)
+         bina_grafic[buff_clines].innerText = buff_binary.join('');
+    }
+
+    switch(wire_side) {
+        case "b0":
+            wire0.src = '../res/img_2.png';
+            setTimeout(()=>{ wire0.src = '../res/img_1.png'},100);
+            sound.play()
+        break;
+        case "b1":
+            wire1.src = '../res/img_2.png';
+            setTimeout(()=>{ wire1.src = '../res/img_1.png';},100);
+            sound.play()
+        break;
+    }
+
+    if (buff_binary.length == 8 ) {
+        stru_memory[buff_clines] = buff_binary.join('');
+        buff_clines += 1;
         
         try {
-            t = mnomios[`_${bits_buff.join("")}`]();
-        }catch(e){};
+            let lbits = parseInt(buff_binary.join('').substr(0,4),2);  
+            let rbits = buff_binary.join('').substr(4,4);    
+    
+            let strfmtd = mnomios[rbits](lbits);
+            stru_grafic[buff_clines].innerHTML = strfmtd;
+        
+        }catch(e){
+            stru_grafic[buff_clines].innerHTML = mnomios['erro']();
+        };
 
-        
-        if (t == null ) {
-            if (bits_buff.join('') != "00000000" ) {
-                let m = `<span style='color: blue'>${parseInt(bits_buff.join("").substr(0,4),2).toString(16)}</span>`;
-                mnom_out[mnom_line].innerHTML += m;
-            }else {
-                let m = `<span style='color: gray; font-weight: bolder'>:label</span>`;
-                mnom_out[mnom_line].innerHTML = m;
-            }
-            mnom_line += 1;
-        } else {
-           mnom_out[mnom_line].innerHTML = t;
-        }
-        
-        bits_buff = Array();
-        bits_line += 1;
+        buff_binary = [];
+        if ( buff_clines == 27 ) buff_clines = 0;
     }
-    
-    if ( id == "wire-1" ) bits_buff.push(0);
-    if ( id == "wire-2" ) bits_buff.push(1);
-    
-    bits_out[bits_line].innerText = bits_buff.join('');
 }
-
 
 function fc_2() {
-	let data_memo = document.querySelectorAll(".bit-cell");
-	let pos = 0;
-	
-    if ( prog_memory.length >= 2 ) {
-		// loop principal 
-		for (let x=0; x < prog_memory.length; x++) {
-			switch(prog_memory[x].join('')) {
-                case "00001010":
-                    pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    data_memo[pos].innerText = acm_;
-                    data_memory[pos] = acm_;
-                    x+=1;
-                break;
-                
-                case "00001111":
-                    pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    acm_ = data_memory[pos]
-                    x+=1;
-                break;
-                
-                case "00000101":
-                    pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    acm_ += data_memory[pos]
-                    x+=1;
-                break;
-                
-                case "00001001":
-                    pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    acm_ = pos
-                    x+=1;
-                break;
-                
-                case "00001100":
-                    pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    data_memory[pos] = ~ data_memory[pos];
-		    data_memo[pos].innerText = data_memory[pos];
-                    x+=1;
-                break;
-                
-                case "00001110":
-                    x = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                break;
-                
-                case "00001011":
-                    if ( acm_ == 0 ) {
-                    	x = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    }else {
-                    	x+=1;
-                    }
-                break;
-                
-                case "00001101":
-                    if ( acm_ < 0 ) {
-                    	x = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    }else {
-                    	x+=1;
-                    }
-                break;
-            }
-		}
-		
-		alert("codigo terminado: acumulador: "+acm_);
-		return;
+    document.getElementById('runing').style.color = 'green';
+    acml_values = 0
+    if (buff_clines > 0 ) {
+        for (let x=0; x < buff_clines; x++) {
+            let lbits = stru_memory[x].substr(0,4);  // values and adress
+            let rbits = stru_memory[x].substr(4,4);  // instructions
+            console.log('a')
+            try {
+                let state = instructions[rbits](lbits);
+                x = ( state == undefined ) ? x : state;
+            
+            }catch(e) {}
+	    }
     }
-    
-    alert("Pouco código na memória principal !!");
+
+    document.getElementById('acm').innerText = acml_values;
+    document.getElementById('runing').style.color = 'gray';
 }
 
-function fc_3() {
-	window.location.reload();
-}
+function fc_3() { window.location.reload();}

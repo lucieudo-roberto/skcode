@@ -1,33 +1,13 @@
-var mnomios = {
-    _00001010 : () => {
-        return "<span style='color: red; font-weight: bolder;'>sta</span>&nbsp;&nbsp;";
-    },
-    
-    _00001111: () => {
-        return "<span style='color: red; font-weight: bolder;'>lda</span>&nbsp;&nbsp;";
-    },
-    
-    _00000101: () => {
-        return "<span style='color: red; font-weight: bolder;'>sum</span>&nbsp;&nbsp;";
-    },
-    
-    _00001110: () => {
-        return "<span style='color: red; font-weight: bolder;'>jmp</span>&nbsp;&nbsp;";
-    },
-    
-    _00001011: () => {
-        return "<span style='color: red; font-weight: bolder;'>jmz</span>&nbsp;&nbsp;";
-    },
-    
-    _00001101: () => {
-        return "<span style='color: red; font-weight: bolder;'>jmn</span>&nbsp;&nbsp;";
-    },
-    
-    _00001001: () => {
-        return "<span style='color: red; font-weight: bolder;'>set</span>&nbsp;&nbsp;";
-    },
-    
-    _00001100: () => {
-    	return "<span style='color: red; font-weight: bolder;'>not</span>&nbsp;&nbsp;";
-    }
+
+
+const mnomios = {
+    "1010": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>sta <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "1111": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>lda <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "0101": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>sum <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "1110": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>jmp <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "1011": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>jmz <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp`;},
+    "1101": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>jmn <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "1001": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>set <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "1100": (x) => { return `<span style='color: #6ea9c4; font-weight: 500;'>not <i style='color:#000'>#</i><span style='color: #d96a29; font-weight: 400;'>${x}</span></span>&nbsp;&nbsp;`;},
+    "erro": ( ) => { return `<span style='color: #5e5e5e; font-weight: 500';>opcode invalido !!</span>&nbsp;&nbsp;`;}
 }
