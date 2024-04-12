@@ -74,7 +74,7 @@ function fc_2() {
 			switch(prog_memory[x].join('')) {
                 case "00001010":
                     pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
-                    data_memo[pos] = acm_;
+                    data_memo[pos].innerText = acm_;
                     data_memory[pos] = acm_;
                     x+=1;
                 break;
@@ -100,6 +100,7 @@ function fc_2() {
                 case "00001100":
                     pos = parseInt(prog_memory[x+1].join('').substr(0,4),2);
                     data_memory[pos] = ~ data_memory[pos];
+		    data_memo[pos].innerText = data_memory[pos];
                     x+=1;
                 break;
                 
