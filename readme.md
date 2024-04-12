@@ -4,7 +4,7 @@
 
 <br>
 
-## Um pouco história
+## Um pouco de história
 <p align="justify">
 Esse pequeno projeto nasceu durante uma brincaderia com uma amiga, a qual falou que durante as férias iria se dedicar bastante nos estudos de programação, que teria como objetivo, voltar programando diretamente em binário por meio de fios, fechando curto direto na memória do computador.  Essa brincadeira me fez lembrar desse <a href="https://pt.m.wikipedia.org/wiki/Altair_8800">computador</a>, onde a programação desses equipamentos eram feitas atraves de chaves eletrônicas que representavam os bits; assim como ela disse na sua brincaderia. Confesso que como um programador com "sindrome de reinventar a roda", eu pensei: porque eu mesmo não faço um  "emulador" com essa abordagem, e a desafio à codar alguma coisa nele?. Então assim nasceu esse microprojeto. 
 </p>
