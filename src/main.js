@@ -44,12 +44,12 @@ function fc_1(wire_side) {
 
     switch(wire_side) {
         case "b0":
-            wire0.src = '../res/img_2.png';
+            wire0.src = 'res/img_2.png';
             setTimeout(()=>{ wire0.src = 'res/img_1.png'},100);
             sound.play()
         break;
         case "b1":
-            wire1.src = '../res/img_2.png';
+            wire1.src = 'res/img_2.png';
             setTimeout(()=>{ wire1.src = 'res/img_1.png';},100);
             sound.play()
         break;
