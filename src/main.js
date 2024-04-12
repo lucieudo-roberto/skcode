@@ -10,29 +10,30 @@ let stru_grafic = document.querySelectorAll(".nm-line");
 let bina_grafic = document.querySelectorAll(".bn-line");
 
 var acml_values = 0;  // acumulador
-let data_memory = Array(16); 
-let stru_memory = Array(28);
+let data_memory = Array(16).fill(0); 
+
+let stru_memory = Array(28).fill(0);
 let buff_binary = [];
 let buff_clines = 0; // buff code lines
 
 const instructions = {
-    "1111": (addr) =>{acml_values  = data_memory[addr]},
-    "0101": (addr) =>{acml_values += data_memory[addr]},
-    "1001": (addr) =>{acml_values = addr},
+    "1111": (addr)=>{acml_values  = data_memory[addr]},
+    "0101": (addr)=>{acml_values += data_memory[addr]},
+    "1001": (addr)=>{acml_values = addr},
     
-    "1010": (addr) => {
+    "1010": (addr)=> {
         data_grafic[addr].innerText = acml_values;
         data_memory[addr] = acml_values;
     },
 
-    "1100": (addr) =>{
+    "1100": (addr)=>{
         data_memory[addr] = ~ data_memory[addr];
 		data_grafic[addr].innerText = data_memory[addr];
     },
 
-    "1110": (addr) => {return addr},
-    "1011": (addr) => {return ( acml_values == 0 ) ? addr : null},
-    "1101": (addr) => {return ( acml_values <  0 ) ? addr : null}
+    "1110": (addr)=> {return addr},
+    "1011": (addr)=> {return ( acml_values == 0 ) ? addr : null},
+    "1101": (addr)=> {return ( acml_values <  0 ) ? addr : null}
 }
 
 function fc_1(wire_side) {
@@ -81,15 +82,15 @@ function fc_2() {
     let callbacksN = 0; // limite máximo de chamadas.
     let callbacksL = 300; // modificar esse valor, pode travar o navegador com uso errado do jmp
 
-    acml_values = 0
-    
+    acml_values = 0;
+
     if ( buff_clines > 0 ) {
         for (let x=0; x < buff_clines; x++) {
             let lbits = stru_memory[x].substr(0,4);  // values and adress
             let rbits = stru_memory[x].substr(4,4);  // instructions
             
             try {
-                let state = instructions[rbits](lbits);
+                let state = instructions[rbits](parseInt(lbits,2));
                 if ( state != undefined ) {
                     if ( state < 0 || state > buff_clines ) {
                         alert(`line: ${buff_clines+1}, invalid jump adress, min-max: < 0-${buff_clines} >`);
@@ -98,7 +99,7 @@ function fc_2() {
                         x = ( state == undefined ) ? x : state;
                 }            
             }catch(e) {}
-
+            document.getElementById('acm').innerText = `acm: ${acml_values} | pgc: ${callbacksN}`;
             if ( callbacksN >= callbacksL ) break;
             callbacksN +=1;
 	    }
