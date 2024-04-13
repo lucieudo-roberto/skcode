@@ -69,15 +69,15 @@ Muito código para quase nada! Em qualquer linguagem de programação, você pod
 
 <table width="100%" style="border-collapse: collapse; padding: 10px;" border>
             <th>opocodes</th>
-            <th>Descrição</th>
-            <tr><td>1, 0000-1010</td><td>Salva o valor do AC na DM</td></tr>
-            <tr><td>2, 0000-1111</td><td>Carrega da DM para o AC</td></tr>
-            <tr><td>3, 0000-0101</td><td>Soma o valor contido no endereço no AC</td></tr>
-            <tr><td>4, 0000-1110</td><td>Pula para o endereço especificado no IM</td></tr>
-            <tr><td>5, 0000-1011</td><td>Pula, se o AC for igual (zero) 0</td></tr>
-            <tr><td>6, 0000-1101</td><td>Pula, se o AC for negativo</td></tr>
-            <tr><td>7, 0000-1001</td><td>Adiciona um valor de 4 bits no AC</td></tr>
-            <tr><td>8, 0000-1100</td><td>Negativa o valor do endereço na DM</td></tr>
+            <th>mnemônios</th>
+            <tr><td>1, 0000-1010</td><td>STA/td></tr>
+            <tr><td>2, 0000-1111</td><td>LDA</td></tr>
+            <tr><td>3, 0000-0101</td><td>SUM</td></tr>
+            <tr><td>4, 0000-1110</td><td>JUMP</td></tr>
+            <tr><td>5, 0000-1011</td><td>JMZ</td></tr>
+            <tr><td>6, 0000-1101</td><td>JMN</td></tr>
+            <tr><td>7, 0000-1001</td><td>SET</td></tr>
+            <tr><td>8, 0000-1100</td><td>NOT</td></tr>
         </table>
 
 <br>
