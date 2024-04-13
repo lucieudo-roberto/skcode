@@ -73,7 +73,7 @@ Muito código para quase nada! Em qualquer linguagem de programação, você pod
             <tr><td>1, 0000-1010</td><td>STA</td></tr>
             <tr><td>2, 0000-1111</td><td>LDA</td></tr>
             <tr><td>3, 0000-0101</td><td>SUM</td></tr>
-            <tr><td>4, 0000-1110</td><td>JUMP</td></tr>
+            <tr><td>4, 0000-1110</td><td>JMP</td></tr>
             <tr><td>5, 0000-1011</td><td>JMZ</td></tr>
             <tr><td>6, 0000-1101</td><td>JMN</td></tr>
             <tr><td>7, 0000-1001</td><td>SET</td></tr>
