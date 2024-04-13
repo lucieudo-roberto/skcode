@@ -30,16 +30,16 @@ O "hardware" do SkCode possue apenas um acumulador e suporte a instruções de 8
 
 <br>
 
-|endereço |opcode| Descrição                                      |
-|---------|------|------------------------------------------------|
-| 0000    | 1010 | Salva o valor do acumulador na DM              |
-| 0000    | 1111 | Carrega da DM para o acumulador                | 
-| 0000    | 0101 | Soma o valor contido no endereço no acumulador |
-| 0000    | 1110 | Pula para o endereço especificado no IM        |
-| 0000    | 1011 | Pula, se o acumulador for igual (zero) 0       |
-| 0000    | 1101 | Pula, se o acumulador for negativo             |
-| 0000    | 1001 | Adiciona um valor de 4 bits no acumulador      |
-| 0000    | 1100 | Negativa o valor do endereço na DM             |
+|endereço |opcode| Descrição                               |
+|---------|------|-----------------------------------------|
+| 0000    | 1010 | Salva o valor do AC na DM               |
+| 0000    | 1111 | Carrega da DM para o AC                 | 
+| 0000    | 0101 | Soma o valor contido no endereço no AC  |
+| 0000    | 1110 | Pula para o endereço especificado no IM |
+| 0000    | 1011 | Pula, se o AC for igual (zero) 0        |
+| 0000    | 1101 | Pula, se o AC for negativo              |
+| 0000    | 1001 | Adiciona um valor de 4 bits no AC       |
+| 0000    | 1100 | Negativa o valor do endereço na DM      |
   
 <br>
 
@@ -70,13 +70,13 @@ Muito código para quase nada! Em qualquer linguagem de programação, você pod
 <table width="100%" style="border-collapse: collapse; padding: 10px;" border>
             <th>opocodes</th>
             <th>Descrição</th>
-            <tr><td>1, 0000-1010</td><td>Salva o valor do acumulador na DM</td></tr>
-            <tr><td>2, 0000-1111</td><td>Carrega da DM para o acumulador</td></tr>
-            <tr><td>3, 0000-0101</td><td>Soma o valor contido no endereço no acumulador</td></tr>
+            <tr><td>1, 0000-1010</td><td>Salva o valor do AC na DM</td></tr>
+            <tr><td>2, 0000-1111</td><td>Carrega da DM para o AC</td></tr>
+            <tr><td>3, 0000-0101</td><td>Soma o valor contido no endereço no AC</td></tr>
             <tr><td>4, 0000-1110</td><td>Pula para o endereço especificado no IM</td></tr>
-            <tr><td>5, 0000-1011</td><td>Pula, se o acumulador for igual (zero) 0</td></tr>
-            <tr><td>6, 0000-1101</td><td>Pula, se o acumulador for negativo</td></tr>
-            <tr><td>7, 0000-1001</td><td>Adiciona um valor de 4 bits no acumulador</td></tr>
+            <tr><td>5, 0000-1011</td><td>Pula, se o AC for igual (zero) 0</td></tr>
+            <tr><td>6, 0000-1101</td><td>Pula, se o AC for negativo</td></tr>
+            <tr><td>7, 0000-1001</td><td>Adiciona um valor de 4 bits no AC</td></tr>
             <tr><td>8, 0000-1100</td><td>Negativa o valor do endereço na DM</td></tr>
         </table>
 
