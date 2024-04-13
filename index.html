@@ -15,7 +15,7 @@
     <main>
         <div class="w1">
             <div class="binary-rows">
-                <p>Instru.. memory</p>
+                <!-- <p>Instru.. memory</p> -->
                 <script>
                     for (let x=0; x<28; x++) {
                         document.write('<i class="bn-line">&nbsp;</i>');
@@ -48,7 +48,6 @@
                 </div>
             </div>
         </div>
-        
         <footer>
             <div class="l-box" onclick="fc_1('b0')">
                 <img id="wire-0" src="res/img_1.png" class="l1-wire wire"/>
@@ -59,21 +58,52 @@
             </div>
         </footer>
     </main>
+
+    <article class="art">
+        <h2>Binary programe skCode</h2>
+        <p align="justify">
+            Este pequeno projeto, apelidado de SkCode, surgiu de uma brincadeira entre amigos, 
+            inspirado na ideia de programação em nível extremamente baixo, semelhante à programação 
+            direta em binário através de interruptores físicos, como nos primeiros computadores. 
+        </p>
+        <p align="justify">
+            A estrutura da "máquina" SkCode é bastante simples, com um acumulador e suporte para instruções de 8 bits.
+            As instruções consistem em uma combinação de valores ou endereços representados pelos 4 bits mais à esquerda 
+            e operações representadas pelos bits restantes. A máquina possui duas memórias separadas, uma para dados e 
+            outra para instruções, seguindo a arquitetura de Harvard.
+        </p>
+        <p align="justify">
+            O funcionamento do SkCode é baseado na máquina Neander, com algumas alterações mínimas. 
+            Os programas são escritos diretamente em binário, o que pode parecer excessivamente complexo 
+            em comparação com linguagens de programação convencionais. No entanto, o projeto serve como uma 
+            introdução divertida aos conceitos de linguagem de montagem e arquitetura de computadores.
+        </p>
+        <h3> opcodes </h3>
+        <table width="100%" style="border-collapse: collapse; padding: 10px;" border>
+            <th>opocode</th>
+            <th>Descrição</th>
+            <tr><td>1, 0000-1010</td><td>Salva o valor do acumulador na DM</td></tr>
+            <tr><td>2, 0000-1111</td><td>Carrega da DM para o acumulador</td></tr>
+            <tr><td>3, 0000-0101</td><td>Soma o valor contido no endereço no acumulador</td></tr>
+            <tr><td>4, 0000-1110</td><td>Pula para o endereço especificado no IM</td></tr>
+            <tr><td>5, 0000-1011</td><td>Pula, se o acumulador for igual (zero) 0</td></tr>
+            <tr><td>6, 0000-1101</td><td>Pula, se o acumulador for negativo</td></tr>
+            <tr><td>7, 0000-1001</td><td>Adiciona um valor de 4 bits no acumulador</td></tr>
+            <tr><td>8, 0000-1100</td><td>Negativa o valor do endereço na DM</td></tr>
+        </table>
+    </article>
+
     <audio id="soud-1" src="res/09671.mp3"></audio>
     <script src="src/styles.js"></script>
     <script src="src/main.js"></script>
 
     <script>
         if (window.innerWidth >= 900 ) {
-            
-            alert('atalhos: 1 0 r c,  r=run, c=clean');
+            alert('atalhos: type: 1 | type: 0 ');
 
             document.addEventListener("keypress",(e)=>{
                 if ( e.key == 0 ){fc_1('b0')};
                 if ( e.key == 1 ){fc_1('b1')};
-
-                if ( e.key == 'r' ){fc_2()};
-                if ( e.key == 'c' ){fc_3()};
             })
         }
     </script>

@@ -33,12 +33,15 @@ main {
         padding: 4%;
     }
         .binary-rows {
+            width: 100;
             display: block;
+            border-right: 1px solid #55555B;
+            margin-right: 5%;
         }
             .bn-line {
                 text-align: center;
                 display: block;
-                width: 90%;
+                width: 95%;
                 border: 1px solid #55555B;
                 padding: 2% 4%;
                 margin: 2% 0;
@@ -107,12 +110,11 @@ main {
             }
             .bnt:hover { cursor: pointer;}
         
-    
+.art { display: none;} 
+
 footer {
     width: 100%;
     display: grid;
-    bottom: 0;
-    left: 0;
     grid-template-columns: 50% 50%;
     margin: 0 auto;
 }
@@ -130,11 +132,46 @@ footer {
             
             
 @media( min-width: 900px ) {
-    h1 {
-        border: none;
+    
+    body {
+        width: 1024px;
+        margin: auto auto;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    
+    h1 { display: none;}
+    
+    main {
+        padding: 0;
+        margin: 0;
+    }
+    .art {
+        display: block;
+        padding-top: 3%;
+
     }
 
-    footer {
-        display: none;
-    }
+        h2,h3 {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font: 500 2rem/1 Arial;
+        }
+        
+        h3 {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font: 500 1.8rem/1 Arial;
+            margin: 3% 0;
+        }
+
+        .art p {
+            margin: 5% 0;
+            line-height: 1.5;
+        }
+
+        td {padding: 3px;}
+    footer {display: none;}
 }   
