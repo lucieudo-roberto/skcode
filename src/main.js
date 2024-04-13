@@ -1,6 +1,4 @@
 
-
-
 let wire0 = document.getElementById('wire-0')
 let wire1 = document.getElementById('wire-1')
 let sound = document.getElementById('soud-1')
@@ -18,7 +16,11 @@ let buff_clines = 0; // buff code lines
 
 const instructions = {
     "1111": (addr)=>{acml_values  = data_memory[addr]},
-    "0101": (addr)=>{acml_values += data_memory[addr]},
+    "0101": (addr)=>{
+        acml_values += data_memory[addr]
+        if (acml_values < -256 || acml_values > 255 )  acml_values = 0;
+    },
+
     "1001": (addr)=>{acml_values = addr},
     
     "1010": (addr)=> {
@@ -42,7 +44,7 @@ function fc_1(wire_side) {
          buff_binary.push(bit)
          bina_grafic[buff_clines].innerText = buff_binary.join('');
     }
-
+    
     switch(wire_side) {
         case "b0":
             wire0.src = 'res/img_2.png';
