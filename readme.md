@@ -70,7 +70,7 @@ Muito código para quase nada! Em qualquer linguagem de programação, você pod
 <table width="100%" style="border-collapse: collapse; padding: 10px;" border>
             <th>opocodes</th>
             <th>mnemônios</th>
-            <tr><td>1, 0000-1010</td><td>STA/td></tr>
+            <tr><td>1, 0000-1010</td><td>STA</td></tr>
             <tr><td>2, 0000-1111</td><td>LDA</td></tr>
             <tr><td>3, 0000-0101</td><td>SUM</td></tr>
             <tr><td>4, 0000-1110</td><td>JUMP</td></tr>
